@@ -11,12 +11,12 @@
 <style>
   :root{
     --bg:#f6f3ee; --surface:#fffdf9; --ink:#1c1a17; --muted:#6b6459;
-    --line:#e6dfd3; --accent:#2a59d0; --accent-soft:#e7ecfb;
-    --accent-ink:#16357f; --shadow:0 1px 2px rgba(28,26,23,.04),0 8px 30px rgba(28,26,23,.06);
+    --line:#e6dfd3; --accent:#c2410c; --accent-soft:#fbe9df;
+    --accent-ink:#7c2d12; --shadow:0 1px 2px rgba(28,26,23,.04),0 8px 30px rgba(28,26,23,.06);
   }
   html[data-theme="dark"]{
-    --bg:#0a0a0f; --surface:#13131a; --ink:#f0f0f5; --muted:#9595ab;
-    --line:#262633; --accent:#00d4ff; --accent-soft:#0b2630; --accent-ink:#aef3ff;
+    --bg:#0c0b0a; --surface:#16140f; --ink:#f2efe9; --muted:#9a948a;
+    --line:#2b2823; --accent:#f5a623; --accent-soft:#2a1f08; --accent-ink:#ffd591;
     --shadow:0 1px 2px rgba(0,0,0,.5),0 14px 44px rgba(0,0,0,.6);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -58,7 +58,7 @@
   .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:11px;
     font-size:15px;font-weight:600;text-decoration:none;transition:.2s;border:1px solid transparent}
   .btn.primary{background:var(--accent);color:#fff}
-  html[data-theme="dark"] .btn.primary{color:#04212b}
+  html[data-theme="dark"] .btn.primary{color:#2a1a02}
   .btn.primary:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
   .btn.ghost{border-color:var(--line);color:var(--ink)}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
@@ -143,7 +143,7 @@
     filter:blur(20px);pointer-events:none;z-index:0;opacity:0}
   html[data-theme="dark"] header::before{opacity:.6}
   html[data-theme="dark"] header::after{content:"";position:absolute;bottom:-220px;right:-150px;width:560px;height:560px;border-radius:50%;
-    background:radial-gradient(circle, color-mix(in srgb,#7b5cff 20%,transparent), transparent 70%);filter:blur(34px);pointer-events:none;z-index:0}
+    background:radial-gradient(circle, color-mix(in srgb,#ff7a3c 18%,transparent), transparent 70%);filter:blur(34px);pointer-events:none;z-index:0}
   /* scroll reveal */
   .reveal{transition:opacity .7s ease, transform .8s cubic-bezier(.2,.7,.2,1)}
   html.anim .reveal{opacity:0;transform:translateY(28px)}
