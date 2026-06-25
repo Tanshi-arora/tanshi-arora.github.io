@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanshi Arora · Business & Delivery Operator</title>
+<meta name="description" content="Tanshi Arora — Business & Delivery Operator. 3 years owning client outcomes end to end: products, revenue, operations, vendors. ₹10Cr+ business influenced, 30+ products shipped.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f3ee; --surface:#fffdf9; --ink:#1c1a17; --muted:#6b6459;
+    --line:#e6dfd3; --accent:#1f6f5c; --accent-soft:#e2efe9;
+    --accent-ink:#0f3d33; --shadow:0 1px 2px rgba(28,26,23,.04),0 8px 30px rgba(28,26,23,.06);
+  }
+  html[data-theme="dark"]{
+    --bg:#15140f; --surface:#1e1c16; --ink:#f3efe6; --muted:#a39c8e;
+    --line:#322f26; --accent:#5fd0b0; --accent-soft:#1d2c27; --accent-ink:#bff0e2;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 30px rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,system-ui,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6;
+    -webkit-font-smoothing:antialiased; transition:background .3s,color .3s;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+  a{color:inherit}
+  .accent{color:var(--accent)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-family:'Fraunces',serif;font-size:18px;font-weight:600;letter-spacing:-.02em}
+  .brand .dot{color:var(--accent)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .toggle{background:none;border:1px solid var(--line);color:var(--muted);width:34px;height:34px;
+    border-radius:9px;cursor:pointer;font-size:15px;display:grid;place-items:center;transition:.2s}
+  .toggle:hover{color:var(--ink);border-color:var(--accent)}
+  @media(max-width:640px){.nav-links a:not(.cta){display:none}}
+
+  /* hero */
+  header{padding:84px 0 56px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+    color:var(--accent);background:var(--accent-soft);padding:6px 13px;border-radius:100px;
+    letter-spacing:.02em;margin-bottom:26px}
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  header h1{font-size:clamp(38px,7vw,68px);margin-bottom:22px}
+  .lede{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:680px;margin-bottom:34px}
+  .lede strong{color:var(--ink);font-weight:600}
+  .btns{display:flex;gap:13px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:11px;
+    font-size:15px;font-weight:600;text-decoration:none;transition:.2s;border:1px solid transparent}
+  .btn.primary{background:var(--accent);color:#fff}
+  html[data-theme="dark"] .btn.primary{color:#0c1a16}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .btn.ghost{border-color:var(--line);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* metrics */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:8px 0 16px}
+  .metric{background:var(--surface);padding:24px 20px}
+  .metric .n{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--accent);line-height:1}
+  .metric .l{font-size:13px;color:var(--muted);margin-top:7px}
+  @media(max-width:720px){.metrics{grid-template-columns:repeat(2,1fr)}}
+
+  section{padding:60px 0;border-top:1px solid var(--line);scroll-margin-top:78px}
+  .sec-label{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px}
+  section h2{font-size:clamp(26px,4vw,36px);margin-bottom:22px;max-width:640px}
+  .prose{font-size:17px;color:var(--muted);max-width:680px}
+  .prose strong{color:var(--ink);font-weight:600}
+
+  /* capability cards */
+  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+  .cap{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .cap h3{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;margin-bottom:7px}
+  .cap p{font-size:13.5px;color:var(--muted)}
+  @media(max-width:720px){.caps{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.caps{grid-template-columns:1fr}}
+
+  /* projects */
+  .proj{display:grid;grid-template-columns:200px 1fr;gap:30px;padding:26px 0;border-bottom:1px solid var(--line)}
+  .proj:last-child{border-bottom:none}
+  .proj .meta .tag{display:inline-block;font-size:12px;font-weight:600;color:var(--accent);
+    background:var(--accent-soft);padding:3px 10px;border-radius:6px;margin-bottom:10px}
+  .proj .meta .val{font-family:'Fraunces',serif;font-size:24px;font-weight:600}
+  .proj .meta .domain{font-size:13px;color:var(--muted);margin-top:3px}
+  .proj h3{font-family:'Fraunces',serif;font-size:21px;margin-bottom:8px}
+  .proj p{font-size:15px;color:var(--muted)}
+  .proj p .out{color:var(--ink);font-weight:600}
+  @media(max-width:640px){.proj{grid-template-columns:1fr;gap:10px}}
+
+  /* experience */
+  .exp-row{display:grid;grid-template-columns:165px 1fr;gap:30px;padding:24px 0;border-bottom:1px solid var(--line)}
+  .exp-row:last-child{border-bottom:none}
+  .exp-when{font-size:13px;color:var(--muted);font-weight:600;padding-top:4px}
+  .exp-body h3{font-family:'Fraunces',serif;font-size:21px}
+  .exp-body h3 span{font-family:'Inter',sans-serif;font-size:14px;color:var(--muted);font-weight:400}
+  .exp-sub{font-size:13.5px;color:var(--accent);font-weight:600;margin:3px 0 12px}
+  .exp-roles{list-style:none}
+  .exp-roles li{font-size:14.5px;color:var(--muted);margin-bottom:13px;padding-left:17px;position:relative}
+  .exp-roles li:last-child{margin-bottom:0}
+  .exp-roles li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .exp-roles li b{color:var(--ink);font-weight:600}
+  .exp-roles li .when{font-size:12.5px;color:var(--muted);font-weight:500}
+  @media(max-width:640px){.exp-row{grid-template-columns:1fr;gap:8px}}
+
+  /* industries */
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .tags span{font-size:14px;padding:9px 16px;background:var(--surface);border:1px solid var(--line);
+    border-radius:100px;color:var(--ink)}
+
+  /* contact */
+  .contact{text-align:center;padding:80px 0}
+  .contact h2{margin:0 auto 16px}
+  .contact .prose{margin:0 auto 30px}
+  .links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;font-size:15px;color:var(--muted)}
+  .links a{color:var(--accent);text-decoration:none;font-weight:600}
+  footer{text-align:center;padding:30px 0 50px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-in">
+  <span class="brand">Tanshi Arora<span class="dot">.</span></span>
+  <div class="nav-links">
+    <a href="#impact">Impact</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Projects</a>
+    <a class="cta" href="mailto:tanshiarora121@gmail.com">Contact</a>
+    <button class="toggle" id="themeBtn" aria-label="Toggle theme">◐</button>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <span class="eyebrow">Open to new roles · Gurugram / Remote</span>
+  <h1>I build, ship, and grow<br>businesses end to end.</h1>
+  <p class="lede">Business &amp; delivery operator, 3 years at <strong>EMB Global</strong> — a $50M IT services firm backed by DST Global, Alpha Wave &amp; Chiratae — owning client outcomes end to end. I take problems with <strong>no playbook</strong> and turn them into shipped products, growing accounts, and revenue, across <strong>products, commercials, vendors and operations.</strong></p>
+  <div class="btns">
+    <a class="btn primary" href="resume/Tanshi-Arora-Resume.pdf">↓ Download résumé</a>
+    <a class="btn ghost" href="https://linkedin.com/in/tanshi-arora">LinkedIn ↗</a>
+    <a class="btn ghost" href="mailto:tanshiarora121@gmail.com">Email</a>
+  </div>
+</div></header>
+
+<section id="impact" style="border-top:none;padding-top:0">
+  <div class="wrap">
+  <div class="metrics">
+    <div class="metric"><div class="n">₹10Cr+</div><div class="l">delivered across engagements</div></div>
+    <div class="metric"><div class="n">₹5Cr</div><div class="l">largest account, scaled from a ₹3L discovery</div></div>
+    <div class="metric"><div class="n">50+</div><div class="l">web &amp; mobile products shipped</div></div>
+    <div class="metric"><div class="n">50+</div><div class="l">enterprise accounts, 5 countries</div></div>
+    <div class="metric"><div class="n">30+</div><div class="l">vendors managed end to end</div></div>
+    <div class="metric"><div class="n">93%+</div><div class="l">client NPS</div></div>
+    <div class="metric"><div class="n">80%+</div><div class="l">on-time delivery</div></div>
+    <div class="metric"><div class="n">2×</div><div class="l">Employee of the Quarter</div></div>
+  </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-label">About</div>
+    <h2>One operator, many hats.</h2>
+    <p class="prose">I started in delivery management and kept picking up whatever the business needed: requirements and PRDs, vendor contracts, pricing, invoicing, renewals, and live operations. The result is a generalist who can own a client relationship from <strong>discovery to commercials to go-live</strong>. I'm strongest at <strong>documentation</strong> and at the ambiguous, zero-playbook problems most people avoid. I've worked across cosmetics, automotive, fintech, edtech, FMCG and D2C, on both the brand and the manufacturing side.</p>
+    <div class="caps">
+      <div class="cap"><h3>Delivery &amp; product</h3><p>30+ products through full SDLC. PRDs, 200+ user-story charters, SRS, UAT, hypercare.</p></div>
+      <div class="cap"><h3>Revenue &amp; commercials</h3><p>Renewals, upsell, cross-sell and pricing experiments driving ~₹10Cr of business.</p></div>
+      <div class="cap"><h3>Vendor &amp; contract ops</h3><p>20+ vendors managed; contracting, negotiation, invoicing and billing.</p></div>
+      <div class="cap"><h3>E-commerce &amp; D2C</h3><p>Shopify storefront launches, catalog &amp; imagery pipelines, creator payouts.</p></div>
+      <div class="cap"><h3>Research &amp; analytics</h3><p>Buyer personas, real-time dashboards, cloud cost modelling.</p></div>
+      <div class="cap"><h3>Stakeholder &amp; CXO comms</h3><p>Client-facing ownership, escalation management, delivery governance.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-label">Experience</div>
+    <h2>Where I've grown.</h2>
+    <div class="exp">
+      <div class="exp-row">
+        <div class="exp-when">Jun 2023 — Present</div>
+        <div class="exp-body">
+          <h3>EMB Global <span>· Gurugram, India</span></h3>
+          <p class="exp-sub">$50M IT services firm · backed by DST Global, Alpha Wave &amp; Chiratae</p>
+          <ul class="exp-roles">
+            <li><b>Assistant Manager</b> <span class="when">· Apr 2026 — Present</span><br>Own delivery and commercial outcomes for the firm's largest enterprise portfolio across SaaS, AI and digital transformation.</li>
+            <li><b>Senior Associate Delivery Manager</b> <span class="when">· Apr 2025 — Apr 2026</span><br>₹10Cr+ incremental revenue across 50+ accounts; built a churn early-warning system (−15%); managed 30+ vendors end to end.</li>
+            <li><b>Associate Delivery Manager</b> <span class="when">· Jun 2023 — Apr 2025</span><br>Led 50+ web &amp; mobile products through full SDLC: 80%+ on-time delivery, 93%+ client NPS.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-when">Jan — Feb 2023</div>
+        <div class="exp-body">
+          <h3>Ferns N Petals (FNP) <span>· Gurugram</span></h3>
+          <p class="exp-sub">Operations Management Trainee</p>
+          <ul class="exp-roles"><li>Analyzed 1,000+ order escalations at a leading D2C gifting brand; 2 process fixes cut repeat complaints 12%. Top 5 Performer.</li></ul>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-when">2020 — 2023</div>
+        <div class="exp-body">
+          <h3>B.Com, University of Delhi <span>· Dyal Singh College</span></h3>
+          <p class="exp-sub">Enactus — led a 30+ member team · Placement Cell Coordinator — 50+ drives, 200+ students placed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-label">Selected work</div>
+    <h2>Engagements I've owned.</h2>
+
+    <div class="proj">
+      <div class="meta"><span class="tag">AI · Fintech SaaS</span><div class="val">₹3L → ₹5Cr</div><div class="domain">MENA · 6 months delivery lead</div></div>
+      <div><h3>Triam (Zeinitho) — AI accounting platform</h3><p>Led feasibility, cost modelling, a phased roadmap and commercial restructuring. <span class="out">Grew a ₹3L discovery into a ₹5Cr engagement (₹2Cr realized)</span>, delivered Phase 1 ahead of schedule with 10/10 CSAT. The client now refers new business.</p></div>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="tag">Automotive</span><div class="val">₹80L</div><div class="domain">India market</div></div>
+      <div><h3>Honda — buyer research + AI commercials</h3><p>Built <span class="out">India-market buyer personas</span> across metro and tier-2 segments, and modelled the AWS production commercials (~$123K/year) for a live AI workload.</p></div>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="tag">Retail · Distribution · UAE</span><div class="val">IHC group</div><div class="domain">Abu Dhabi</div></div>
+      <div><h3>Zee Stores — retail &amp; distribution platform</h3><p>Delivered the digital platform for an <span class="out">IHC-owned wholesale and distribution enterprise</span> in Abu Dhabi, spanning 5 warehouses and MENA-wide supply.</p></div>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="tag">Cosmetics · B2B</span><div class="val">End to end</div><div class="domain">Delivered solo</div></div>
+      <div><h3>Naturis — B2B sampling platform</h3><p>Specced and prototyped a <span class="out">6-role, 31-screen sampling platform</span> for a cosmetics manufacturer: requirement intake, lab routing, SLA tracking, dispatch, stability workflows, RBAC and audit trails. Owned start to finish.</p></div>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="tag">Marketplace</span><div class="val">₹30L → ₹1.4Cr</div><div class="domain">MENA</div></div>
+      <div><h3>Jebni — services marketplace</h3><p>Built a <span class="out">200+ user-story product charter</span> and multi-version SRS, ran contracts, stakeholder analysis, resourcing and design-vendor management. Expanded the engagement 4.6x.</p></div>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="tag">Sports · Platform</span><div class="val">Launching soon</div><div class="domain">India</div></div>
+      <div><h3>PGTI — Professional Golf Tour of India</h3><p>Delivered the <span class="out">digital platform for India's professional golf tour</span>, launching shortly.</p></div>
+    </div>
+
+    <p class="prose" style="margin-top:26px;font-size:15px">Also delivered for <strong>Al Seer</strong> (FMCG analytics, MENA), <strong>Utkarsh Classes</strong> (edtech, 27M+ downloads), <strong>MG Motors, Vardhaman, MKU, Bankcard, Chimes Aviation, Blue Tokai</strong> and <strong>Ferns N Petals</strong> across delivery, operations and commercials.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">Industries</div>
+    <h2>Where I've worked.</h2>
+    <div class="tags">
+      <span>AI &amp; SaaS</span><span>Cosmetics &amp; beauty</span><span>Automotive</span><span>Fintech</span>
+      <span>Edtech</span><span>FMCG distribution</span><span>D2C &amp; e-commerce</span><span>Marketplaces</span>
+      <span>Aviation</span><span>F&amp;B</span><span>Manufacturing</span>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-label" style="text-align:center">Get in touch</div>
+    <h2>Let's build something.</h2>
+    <p class="prose">Open to Business / Delivery Operator, Category Manager, Founder's Office and Operations roles in Gurugram or remote.</p>
+    <div class="links">
+      <a href="mailto:tanshiarora121@gmail.com">tanshiarora121@gmail.com</a> ·
+      <a href="tel:+918571896380">+91 85718 96380</a> ·
+      <a href="https://linkedin.com/in/tanshi-arora">LinkedIn</a> ·
+      <a href="resume/Tanshi-Arora-Resume.pdf">Résumé (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Tanshi Arora · Gurugram, India</footer>
+
+<script>
+  const root=document.documentElement, btn=document.getElementById('themeBtn');
+  const saved=localStorage.getItem('theme')|| (matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  root.setAttribute('data-theme',saved);
+  btn.onclick=()=>{const t=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',t);localStorage.setItem('theme',t);};
+</script>
+</body>
+</html>
