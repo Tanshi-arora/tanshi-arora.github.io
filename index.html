@@ -11,12 +11,12 @@
 <style>
   :root{
     --bg:#f6f3ee; --surface:#fffdf9; --ink:#1c1a17; --muted:#6b6459;
-    --line:#e6dfd3; --accent:#3a3f9e; --accent-soft:#e8e9f7;
-    --accent-ink:#23265f; --shadow:0 1px 2px rgba(28,26,23,.04),0 8px 30px rgba(28,26,23,.06);
+    --line:#e6dfd3; --accent:#2a59d0; --accent-soft:#e7ecfb;
+    --accent-ink:#16357f; --shadow:0 1px 2px rgba(28,26,23,.04),0 8px 30px rgba(28,26,23,.06);
   }
   html[data-theme="dark"]{
     --bg:#15140f; --surface:#1e1c16; --ink:#f3efe6; --muted:#a39c8e;
-    --line:#322f26; --accent:#9499f5; --accent-soft:#20223d; --accent-ink:#cdd0ff;
+    --line:#322f26; --accent:#7da2ff; --accent-soft:#19223f; --accent-ink:#c6d6ff;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 30px rgba(0,0,0,.4);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -35,7 +35,7 @@
   nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
     background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
   .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .brand{font-family:'Fraunces',serif;font-size:24px;font-weight:600;letter-spacing:-.02em}
+  .brand{font-family:'Fraunces',serif;font-size:28px;font-weight:700;letter-spacing:-.02em;color:var(--accent)}
   .brand .dot{color:var(--accent)}
   .nav-links{display:flex;gap:26px;align-items:center}
   .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
@@ -58,7 +58,7 @@
   .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:11px;
     font-size:15px;font-weight:600;text-decoration:none;transition:.2s;border:1px solid transparent}
   .btn.primary{background:var(--accent);color:#fff}
-  html[data-theme="dark"] .btn.primary{color:#11132e}
+  html[data-theme="dark"] .btn.primary{color:#0e1836}
   .btn.primary:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
   .btn.ghost{border-color:var(--line);color:var(--ink)}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
@@ -99,19 +99,20 @@
   @media(max-width:640px){.proj{grid-template-columns:1fr;gap:10px}}
 
   /* experience */
-  .exp-row{display:grid;grid-template-columns:165px 1fr;gap:30px;padding:24px 0;border-bottom:1px solid var(--line)}
-  .exp-row:last-child{border-bottom:none}
-  .exp-when{font-size:13px;color:var(--muted);font-weight:600;padding-top:4px}
-  .exp-body h3{font-family:'Fraunces',serif;font-size:21px}
-  .exp-body h3 span{font-family:'Inter',sans-serif;font-size:14px;color:var(--muted);font-weight:400}
-  .exp-sub{font-size:13.5px;color:var(--accent);font-weight:600;margin:3px 0 12px}
-  .exp-roles{list-style:none}
-  .exp-roles li{font-size:14.5px;color:var(--muted);margin-bottom:13px;padding-left:17px;position:relative}
-  .exp-roles li:last-child{margin-bottom:0}
-  .exp-roles li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
-  .exp-roles li b{color:var(--ink);font-weight:600}
-  .exp-roles li .when{font-size:12.5px;color:var(--muted);font-weight:500}
-  @media(max-width:640px){.exp-row{grid-template-columns:1fr;gap:8px}}
+  .exp-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 30px;margin-bottom:18px;box-shadow:var(--shadow)}
+  .exp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+  .exp-head h3{font-family:'Fraunces',serif;font-size:23px;line-height:1.15}
+  .exp-meta{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .exp-badge{font-size:12.5px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:7px 14px;border-radius:100px;white-space:nowrap}
+  .track{list-style:none;margin:22px 0 0;padding-left:8px;border-left:2px solid var(--line)}
+  .track li{position:relative;padding:0 0 20px 26px}
+  .track li:last-child{padding-bottom:2px}
+  .track li::before{content:"";position:absolute;left:-9px;top:3px;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--surface)}
+  .track-role{font-weight:700;color:var(--ink);font-size:15.5px}
+  .track-when{font-size:12.5px;color:var(--muted);margin-left:10px;font-weight:500}
+  .track li p{font-size:14.5px;color:var(--muted);margin-top:5px}
+  .exp-p{font-size:14.5px;color:var(--muted);margin-top:12px}
+  @media(max-width:560px){.exp-badge{align-self:flex-start}.exp-card{padding:22px 20px}}
 
   /* industries */
   .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
@@ -186,34 +187,42 @@
   <div class="wrap">
     <div class="sec-label">Experience</div>
     <h2>Where I've grown.</h2>
+    <p class="prose" style="margin-bottom:32px">Three roles in three years at one company — promoted twice, owning a bigger slice of the business at every step.</p>
     <div class="exp">
-      <div class="exp-row">
-        <div class="exp-when">Jun 2023 — Present</div>
-        <div class="exp-body">
-          <h3>EMB Global <span>· Gurugram, India</span></h3>
-          <p class="exp-sub">$50M IT services firm · backed by DST Global, Alpha Wave &amp; Chiratae</p>
-          <ul class="exp-roles">
-            <li><b>Assistant Manager</b> <span class="when">· Apr 2026 — Present</span><br>Own delivery and commercial outcomes for the firm's largest enterprise portfolio across SaaS, AI and digital transformation.</li>
-            <li><b>Senior Associate Delivery Manager</b> <span class="when">· Apr 2025 — Apr 2026</span><br>₹10Cr+ incremental revenue across 50+ accounts; built a churn early-warning system (−15%); managed 30+ vendors end to end.</li>
-            <li><b>Associate Delivery Manager</b> <span class="when">· Jun 2023 — Apr 2025</span><br>Led 50+ web &amp; mobile products through full SDLC: 80%+ on-time delivery, 93%+ client NPS.</li>
-          </ul>
+      <article class="exp-card">
+        <div class="exp-head">
+          <div>
+            <h3>EMB Global</h3>
+            <p class="exp-meta">Gurugram, India · $50M IT services firm, backed by DST Global, Alpha Wave &amp; Chiratae</p>
+          </div>
+          <span class="exp-badge">↑ Promoted 2× · Jun 2023 — Present</span>
         </div>
-      </div>
-      <div class="exp-row">
-        <div class="exp-when">Jan — Feb 2023</div>
-        <div class="exp-body">
-          <h3>Ferns N Petals (FNP) <span>· Gurugram</span></h3>
-          <p class="exp-sub">Operations Management Trainee</p>
-          <ul class="exp-roles"><li>Analyzed 1,000+ order escalations at a leading D2C gifting brand; 2 process fixes cut repeat complaints 12%. Top 5 Performer.</li></ul>
+        <ol class="track">
+          <li><span class="track-role">Assistant Manager</span><span class="track-when">Apr 2026 — Present</span><p>Own delivery and commercial outcomes for the firm's largest enterprise portfolio across SaaS, AI and digital transformation.</p></li>
+          <li><span class="track-role">Senior Associate Delivery Manager</span><span class="track-when">Apr 2025 — Apr 2026</span><p>₹10Cr+ incremental revenue across 50+ accounts; built a churn early-warning system (−15%); managed 30+ vendors end to end.</p></li>
+          <li><span class="track-role">Associate Delivery Manager</span><span class="track-when">Jun 2023 — Apr 2025</span><p>Led 50+ web &amp; mobile products through full SDLC: 80%+ on-time delivery, 93%+ client NPS.</p></li>
+        </ol>
+      </article>
+      <article class="exp-card">
+        <div class="exp-head">
+          <div>
+            <h3>Ferns N Petals (FNP)</h3>
+            <p class="exp-meta">Operations Management Trainee · Gurugram</p>
+          </div>
+          <span class="exp-badge">Jan — Feb 2023</span>
         </div>
-      </div>
-      <div class="exp-row">
-        <div class="exp-when">2020 — 2023</div>
-        <div class="exp-body">
-          <h3>B.Com, University of Delhi <span>· Dyal Singh College</span></h3>
-          <p class="exp-sub">Enactus — led a 30+ member team · Placement Cell Coordinator — 50+ drives, 200+ students placed</p>
+        <p class="exp-p">Analyzed 1,000+ order escalations at a leading D2C gifting brand; 2 process fixes cut repeat complaints 12%. Recognised Top 5 Performer.</p>
+      </article>
+      <article class="exp-card">
+        <div class="exp-head">
+          <div>
+            <h3>B.Com — University of Delhi</h3>
+            <p class="exp-meta">Dyal Singh College · 2020 — 2023</p>
+          </div>
+          <span class="exp-badge">Education</span>
         </div>
-      </div>
+        <p class="exp-p">Enactus — led a 30+ member team. Placement Cell Coordinator — ran 50+ company drives, 200+ students placed.</p>
+      </article>
     </div>
   </div>
 </section>
