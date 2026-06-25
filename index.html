@@ -170,6 +170,20 @@
   .modal .close{position:absolute;top:16px;right:18px;font-size:22px;line-height:1;color:var(--muted);text-decoration:none}
   .modal .close:hover{color:var(--ink)}
 
+  /* hover affordances */
+  .stat,.cap,.proj{transition:background .25s ease}
+  .stat:hover,.cap:hover,.proj:hover{background:oklch(0.99 0.008 80)}
+  .proj h3{transition:color .2s ease}
+  .proj:hover h3{color:var(--accent)}
+  .emb{transition:border-color .25s ease}
+  .contact-links a{transition:color .2s ease}
+
+  /* scroll reveal (lazy) */
+  .reveal{transition:opacity .7s ease, transform .75s cubic-bezier(.2,.7,.2,1)}
+  html.anim .reveal{opacity:0;transform:translateY(26px)}
+  html.anim .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){html.anim .reveal{opacity:1!important;transform:none!important}}
+
   /* responsive */
   @media(max-width:860px){
     .hero{grid-template-columns:1fr;gap:26px}
@@ -210,7 +224,7 @@
       <h1 class="hero-title">I build, ship and grow businesses end to end.</h1>
       <p class="lede">Business &amp; delivery operator, 3 years at <strong>EMB Global</strong> — a $50M IT services firm backed by DST Global, Alpha Wave &amp; Chiratae — owning client outcomes end to end. I take problems with <em>no playbook</em> and turn them into shipped products, growing accounts, and revenue.</p>
       <div class="cta-row">
-        <a class="btn btn-fill" href="resume/Tanshi-Arora-Resume.pdf?v=10" target="_blank" rel="noopener">Download résumé ↓</a>
+        <a class="btn btn-fill" href="resume/Tanshi-Arora-Resume.pdf?v=11" target="_blank" rel="noopener">Download résumé ↓</a>
         <a class="btn btn-out" href="https://linkedin.com/in/tanshi-arora" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="btn btn-out" href="mailto:tanshiarora121@gmail.com">Email</a>
       </div>
@@ -242,7 +256,7 @@
       <div class="stat"><div class="v">30+</div><div class="l">web &amp; mobile products shipped</div></div>
       <div class="stat"><div class="v">30+</div><div class="l">enterprise accounts, 5 countries</div></div>
       <div class="stat"><div class="v">30+</div><div class="l">vendors managed end to end</div></div>
-      <div class="stat"><div class="v">~90%</div><div class="l">client NPS</div></div>
+      <div class="stat"><div class="v">90%</div><div class="l">client NPS</div></div>
       <div class="stat"><div class="v">80%+</div><div class="l">on-time delivery</div></div>
       <div class="stat"><div class="v">2×</div><div class="l">Employee of the Quarter</div></div>
     </div>
@@ -290,7 +304,7 @@
         </div>
         <div class="role">
           <div><div class="rt">Associate Delivery Manager</div><div class="rd">JUN 2023 — APR 2025</div></div>
-          <p>Ran 30+ web &amp; mobile products through the full SDLC — discovery, user stories, sprint planning, UAT, go-live, hypercare — at 80%+ on-time delivery and ~90% client NPS. Built 200+ user-story charters and multi-version SRS; scaled the Jebni marketplace ₹30L → ₹1.4Cr.</p>
+          <p>Ran 30+ web &amp; mobile products through the full SDLC — discovery, user stories, sprint planning, UAT, go-live, hypercare — at 80%+ on-time delivery and 90% client NPS. Built 200+ user-story charters and multi-version SRS; scaled the Jebni marketplace ₹30L → ₹1.4Cr.</p>
         </div>
       </div>
     </div>
@@ -434,7 +448,7 @@
         <a href="mailto:tanshiarora121@gmail.com">tanshiarora121@gmail.com</a>
         <a href="tel:+918571896380">+91 85718 96380</a>
         <a href="https://linkedin.com/in/tanshi-arora" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="resume/Tanshi-Arora-Resume.pdf?v=10" target="_blank" rel="noopener">Résumé (PDF) ↗</a>
+        <a href="resume/Tanshi-Arora-Resume.pdf?v=11" target="_blank" rel="noopener">Résumé (PDF) ↗</a>
       </div>
       <div class="copyright">© 2026 Tanshi Arora · Gurugram, India</div>
     </div>
@@ -455,5 +469,22 @@
     </div>
   </div>
 </div>
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('anim');
+  var targets=[].slice.call(document.querySelectorAll('.stat, .cap, .proj, #experience .emb, .ind-grid .ic, .also, .contact .inner'));
+  targets.forEach(function(t){t.classList.add('reveal')});
+  var show=function(t){t.classList.add('in')};
+  if(!('IntersectionObserver' in window)){targets.forEach(show);return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}})},{threshold:0.08,rootMargin:'0px 0px -6% 0px'});
+  var vh=window.innerHeight||800;
+  targets.forEach(function(t){
+    var sibs=[].slice.call(t.parentNode.children).filter(function(c){return c.classList.contains('reveal')});
+    t.style.transitionDelay=Math.min(Math.max(sibs.indexOf(t),0)*55,280)+'ms';
+    if(t.getBoundingClientRect().top < vh*0.95){show(t);} else {io.observe(t);}
+  });
+  setTimeout(function(){targets.forEach(show);},2600);
+})();
+</script>
 </body>
 </html>
