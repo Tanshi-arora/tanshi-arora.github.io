@@ -53,29 +53,23 @@
   .btn-out{border:1px solid var(--btn-out);color:oklch(0.35 0.02 60)}
   .btn-out:hover{border-color:var(--accent);color:var(--accent)}
 
-  /* hero floating capability tags */
+  /* hero capability network — wired nodes */
   .hero-art{display:flex;align-items:center;justify-content:center}
-  .cap-cloud{position:relative;width:100%;max-width:480px;aspect-ratio:1/1}
-  .cap-cloud .pill{position:absolute;white-space:nowrap;padding:10px 18px;border-radius:999px;border:1px solid var(--btn-out);background:var(--paper);font-size:14px;font-weight:500;color:oklch(0.38 0.02 60);box-shadow:0 4px 16px oklch(0.575 0.13 38 / 0.07);will-change:transform}
+  .cap-cloud{position:relative;width:100%;max-width:480px;aspect-ratio:1/1;animation:netfloat 11s ease-in-out infinite}
+  .cap-net{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .cap-net .wire{stroke:var(--hair);stroke-width:0.5;fill:none;stroke-dasharray:2.6 2.6;animation:flow 2.8s linear infinite}
+  .cap-net .node{fill:var(--accent);opacity:.4}
+  .cap-cloud .pill{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;padding:9px 16px;border-radius:999px;border:1px solid var(--btn-out);background:var(--paper);font-size:13.5px;font-weight:500;color:oklch(0.38 0.02 60);box-shadow:0 4px 16px oklch(0.575 0.13 38 / 0.08);z-index:1}
   .cap-cloud .pill.accent{border-color:var(--accent);color:var(--accent);background:oklch(0.575 0.13 38 / 0.06)}
-  .cap-cloud .p1{top:5%;left:5%;animation:drift-a 8s ease-in-out infinite}
-  .cap-cloud .p2{top:18%;left:52%;animation:drift-b 9.5s ease-in-out infinite}
-  .cap-cloud .p3{top:35%;left:9%;animation:drift-c 8.8s ease-in-out infinite}
-  .cap-cloud .p4{top:33%;left:60%;animation:drift-a 10.5s ease-in-out infinite}
-  .cap-cloud .p5{top:51%;left:30%;animation:drift-b 9s ease-in-out infinite}
-  .cap-cloud .p6{top:67%;left:7%;animation:drift-c 11s ease-in-out infinite}
-  .cap-cloud .p7{top:69%;left:52%;animation:drift-a 9.8s ease-in-out infinite}
-  .cap-cloud .p8{top:85%;left:28%;animation:drift-b 8.4s ease-in-out infinite}
-  @keyframes drift-a{0%,100%{transform:translate(0,0)}50%{transform:translate(9px,-14px)}}
-  @keyframes drift-b{0%,100%{transform:translate(0,0)}50%{transform:translate(-13px,11px)}}
-  @keyframes drift-c{0%,100%{transform:translate(0,0)}50%{transform:translate(11px,13px)}}
-  @media(prefers-reduced-motion:reduce){.cap-cloud .pill{animation:none}}
+  @keyframes flow{to{stroke-dashoffset:-10.4}}
+  @keyframes netfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @media(prefers-reduced-motion:reduce){.cap-net .wire{animation:none}.cap-cloud{animation:none}}
 
   /* stats */
   .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
   .stat{padding:26px 24px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
   .stat .v{font-family:'Newsreader',serif;font-size:34px;font-weight:500;letter-spacing:-0.015em;color:var(--ink)}
-  .stat .l{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.4}
+  .stat .l{font-size:14px;color:var(--muted);margin-top:7px;line-height:1.4}
 
   /* section */
   .section{padding-top:96px;scroll-margin-top:80px}
@@ -122,8 +116,11 @@
   .also strong{color:oklch(0.32 0.02 60);font-weight:600}
 
   /* industries */
-  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-  .tags span{padding:10px 18px;border:1px solid oklch(0.82 0.02 70);border-radius:999px;font-size:14px;color:oklch(0.38 0.02 60)}
+  .tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .tags span{display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border:1px solid var(--hair);border-radius:999px;font-size:14px;color:oklch(0.35 0.02 60);background:oklch(0.99 0.008 80);box-shadow:0 1px 2px oklch(0.575 0.13 38 / 0.04);transition:.22s ease}
+  .tags span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.55;transition:.22s ease}
+  .tags span:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 18px oklch(0.575 0.13 38 / 0.10)}
+  .tags span:hover::before{opacity:1}
 
   /* contact */
   .contact{margin-top:96px;background:var(--footer);border-top:1px solid var(--hair)}
@@ -182,14 +179,39 @@
     </div>
     <div class="hero-art">
       <div class="cap-cloud" aria-hidden="true">
-        <span class="pill p1">Delivery</span>
-        <span class="pill accent p2">Revenue</span>
-        <span class="pill p3">Vendor ops</span>
-        <span class="pill accent p4">Product</span>
-        <span class="pill p5">E-commerce</span>
-        <span class="pill p6">Operations</span>
-        <span class="pill accent p7">Research</span>
-        <span class="pill p8">CXO comms</span>
+        <svg class="cap-net" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <g>
+            <line class="wire" x1="19" y1="17" x2="21" y2="45"/>
+            <line class="wire" x1="19" y1="17" x2="71" y2="21"/>
+            <line class="wire" x1="71" y1="21" x2="79" y2="47"/>
+            <line class="wire" x1="21" y1="45" x2="47" y2="62"/>
+            <line class="wire" x1="79" y1="47" x2="47" y2="62"/>
+            <line class="wire" x1="47" y1="62" x2="72" y2="74"/>
+            <line class="wire" x1="21" y1="45" x2="18" y2="78"/>
+            <line class="wire" x1="18" y1="78" x2="46" y2="88"/>
+            <line class="wire" x1="47" y1="62" x2="46" y2="88"/>
+            <line class="wire" x1="79" y1="47" x2="72" y2="74"/>
+            <line class="wire" x1="71" y1="21" x2="47" y2="62"/>
+          </g>
+          <g>
+            <circle class="node" cx="19" cy="17" r="0.9"/>
+            <circle class="node" cx="71" cy="21" r="0.9"/>
+            <circle class="node" cx="21" cy="45" r="0.9"/>
+            <circle class="node" cx="79" cy="47" r="0.9"/>
+            <circle class="node" cx="47" cy="62" r="0.9"/>
+            <circle class="node" cx="18" cy="78" r="0.9"/>
+            <circle class="node" cx="72" cy="74" r="0.9"/>
+            <circle class="node" cx="46" cy="88" r="0.9"/>
+          </g>
+        </svg>
+        <span class="pill" style="left:19%;top:17%">Delivery</span>
+        <span class="pill accent" style="left:71%;top:21%">Revenue</span>
+        <span class="pill" style="left:21%;top:45%">Vendor ops</span>
+        <span class="pill accent" style="left:79%;top:47%">Product</span>
+        <span class="pill" style="left:47%;top:62%">E-commerce</span>
+        <span class="pill" style="left:18%;top:78%">Operations</span>
+        <span class="pill accent" style="left:72%;top:74%">Research</span>
+        <span class="pill" style="left:46%;top:88%">CXO comms</span>
       </div>
     </div>
   </section>
@@ -200,7 +222,7 @@
       <div class="stat"><div class="v">₹10Cr+</div><div class="l">delivered across engagements</div></div>
       <div class="stat"><div class="v">₹2Cr</div><div class="l">from one flagship account</div></div>
       <div class="stat"><div class="v">50+</div><div class="l">web &amp; mobile products shipped</div></div>
-      <div class="stat"><div class="v">50+</div><div class="l">enterprise accounts, 5 countries</div></div>
+      <div class="stat"><div class="v">40+</div><div class="l">enterprise accounts, 5 countries</div></div>
       <div class="stat"><div class="v">30+</div><div class="l">vendors managed end to end</div></div>
       <div class="stat"><div class="v">93%+</div><div class="l">client NPS</div></div>
       <div class="stat"><div class="v">80%+</div><div class="l">on-time delivery</div></div>
@@ -246,11 +268,11 @@
         </div>
         <div class="role">
           <div><div class="rt">Senior Associate Delivery Manager</div><div class="rd">APR 2025 — APR 2026</div></div>
-          <p>₹10Cr+ incremental revenue across 50+ accounts; built a churn early-warning system (−15%); managed 30+ vendors end to end.</p>
+          <p>₹10Cr+ incremental revenue across 40+ accounts; built a churn early-warning system (−15%); managed 30+ vendors end to end.</p>
         </div>
         <div class="role">
           <div><div class="rt">Associate Delivery Manager</div><div class="rd">JUN 2023 — APR 2025</div></div>
-          <p>Led 50+ web &amp; mobile products through full SDLC: 80%+ on-time delivery, 93%+ client NPS.</p>
+          <p>Ran web &amp; mobile products through the full SDLC — discovery, user stories, UAT, go-live, hypercare — at 80%+ on-time delivery and 93%+ client NPS.</p>
         </div>
       </div>
     </div>
@@ -291,8 +313,8 @@
       </div>
       <div>
         <h3>Honda</h3>
-        <div class="sub">Buyer research + AI commercials</div>
-        <p class="desc">Built India-market buyer personas across metro and tier-2 segments, and modelled the AWS production commercials (~$123K/yr) for a live AI workload.</p>
+        <div class="sub">AI adoption + buyer research</div>
+        <p class="desc">Led Honda's move into AI — ran the entire India-market buyer research across metro and tier-2 segments and modelled the production AI infrastructure commercials (₹1Cr+/yr) for a live workload.</p>
       </div>
     </div>
     <div class="proj">
@@ -310,7 +332,7 @@
     <div class="proj">
       <div>
         <div class="sector">Cosmetics · B2B</div>
-        <div class="metric">6 roles · 31 screens</div>
+        <div class="metric">0 → 1</div>
         <div class="region">Delivered solo</div>
       </div>
       <div>
@@ -344,7 +366,7 @@
       </div>
     </div>
     <div class="also">
-      <p>Also delivered for <strong>Al Seer</strong> (FMCG analytics, MENA), <strong>Utkarsh Classes</strong> (edtech, 27M+ downloads), <strong>MG Motors, Vardhaman, MKU, Bankcard, Chimes Aviation</strong> and <strong>Blue Tokai</strong> across delivery, operations and commercials.</p>
+      <p>Also delivered for <strong>Al Seer</strong> (FMCG analytics, MENA), <strong>Utkarsh Classes</strong> (edtech, 27M+ downloads), <strong>MG Motors, Vardhaman Textiles, MKU, Bankcard, Chimes Aviation</strong> and <strong>Blue Tokai</strong> across delivery, operations and commercials.</p>
     </div>
   </div>
 
